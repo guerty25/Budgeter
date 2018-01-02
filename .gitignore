@@ -240,3 +240,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+wpftoolkit-master/
+
+wpftoolkit-master\.zip

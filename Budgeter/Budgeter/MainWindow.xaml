@@ -7,10 +7,56 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <TabControl>
-        <TabItem>
+        <TabItem Name="MainTab">
             <TabItem.Header>Main</TabItem.Header>
             <Grid>
-                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>                    
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+                <GroupBox Grid.Column="0" Name="AccountGroupBox" Header="Accounts">
+                    <DataGrid ItemsSource="{Binding Path=Accounts}" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
+                            <DataGridTextColumn Header="Available Amount" Binding="{Binding AvailableAmount}"/>
+                            <DataGridTextColumn Header="Update Date" Binding="{Binding UpdateDate}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </GroupBox>                    
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Calendar Name="BillsCalendar" Grid.Row="0"/>
+                    <GroupBox Header="Bills" Grid.Row="1">                        
+                        <ListBox Name="DayBillsListBox"/>
+                    </GroupBox>
+                </Grid>
+                <DockPanel Grid.Row="1" Grid.Column="1" LastChildFill="False">
+                    <Button DockPanel.Dock="Right" Content="Refresh Accounts" Width="Auto"/>
+                    <Button DockPanel.Dock="Right" Content="Add Account" Width="Auto"/>
+                </DockPanel>
+            </Grid>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>Envelopes</TabItem.Header>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>Trends</TabItem.Header>
+            <Grid>
+
+            </Grid>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>Goals</TabItem.Header>
+            <Grid>
+
             </Grid>
         </TabItem>
     </TabControl>
